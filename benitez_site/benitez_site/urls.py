@@ -19,8 +19,7 @@ from django.urls.conf import include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('blog/', include("blog.urls")) # http://localhost:8000/blog/
-    # path('', include(homepage.urls)),  # http://localhost:8000/
+    path('', include("blog.urls")),  # http://localhost:8000/
     # path('league-highlights/', include("league-highlights.urls")), # http://localhost:8000/league-highlights/
     # path('personal-goals/', include("personal-goals.urls")) # http://localhost:8000/personal-goals/
 ]

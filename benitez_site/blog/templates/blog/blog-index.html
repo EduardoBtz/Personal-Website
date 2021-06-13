@@ -1,7 +1,53 @@
 {% extends 'base-layout.html' %}
+{% load static %}
 
 {% block title %}Personal Blog{% endblock title %}
 
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'blog/index.css' %}">
+{% endblock css_files %}
+
+
 {% block content %}
-    <h1>Welcome to my Blog!</h1>
+    <header id="main-navigation">
+        <h1><a href="Lalo's Blog"></a></h1>
+        <nav>
+            <a href="">All Posts</a>
+        </nav>
+    </header>
+
+    <section id="welcome">
+        <header>
+            <img src="{% static 'blog/img/lalo.jpg' %}" alt="Lalo - The author of this Blog." />
+            <h2>Eduardo's Blog</h2>
+        </header>
+        <p>Lalo benitez hola saludo</p>
+    </section>
+
+    <section id="latest-posts">
+        <h2>My Latest Thoughts</h2>
+        <ul>
+            <li>
+                <article class="post">
+                    <a href="">
+                        <img src="{% static 'blog/img/mountains.jpg' %}" alt="Mountain Hiking" />
+                        <div class="post__content">
+                            <h3>Mountain Hiking</h3>
+                            <p>There is nothing like the views you get when hiking at the mountains.</p>
+                        </div>
+                    </a>
+                </article>
+            </li>
+        </ul>
+    </section>
+
+    <section id="about">
+        <h2>What I do</h2>
+        <p>I love programming.</p>
+        <p>My goal is to become an experienced backend developer.</p>
+    </section>
+
 {% endblock content %}
+
+
