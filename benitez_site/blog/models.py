@@ -6,7 +6,6 @@ from django.utils.text import slugify
 from django.core.validators import MinLengthValidator
 
 
-
 # Create your models here.
 class Tag(models.Model):
     caption = models.CharField(max_length=32)
@@ -27,7 +26,7 @@ class Author(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=50)
     excerpt = models.CharField(max_length=128)
-    img_name = models.CharField(max_length=50)
+    image = models.ImageField(upload_to="posts", null=True)
     date = models.DateField(auto_now=True)
     slug = models.SlugField(unique=True, default="", blank=True, null=False, db_index=True)
     content = models.TextField(validators=[MinLengthValidator])
