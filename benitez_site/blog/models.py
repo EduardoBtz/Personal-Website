@@ -32,6 +32,7 @@ class Post(models.Model):
     content = models.TextField(validators=[MinLengthValidator])
 
     # One to many relation
+    # One author can have many posts. One post belongs to an author. 
     author = models.ForeignKey(Author, on_delete=models.SET_NULL, null=True, related_name="posts")
 
     # Many to Many relation
@@ -39,6 +40,20 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Comment(models.Model):
+    user_name = models.CharField(max_length=120)
+    user_email = models.EmailField()
+    text = models.TextField(max_length=400)
+
+    # One to many relation. 
+    # One post can have many comments. One comment belongs to a post.
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
+    
+    def __str__(self):
+        return self.user_name
+
 
 
     
